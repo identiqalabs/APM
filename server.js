@@ -52,6 +52,13 @@ const Widget = mongoose.model("Widget", widgetSchema);
 // Express App
 const app = express();
 
+// Minimal Lambda test route for API Gateway
+app.get("/APMWidgetApp", (req, res) => {
+  console.log("Serving /APMWidgetApp route");
+  res.sendFile(path.join(__dirname, "public", "app.html"));
+});
+
+
 // Disable ALL browser caching + BFCache
 app.use((req, res, next) => {
   res.setHeader(
