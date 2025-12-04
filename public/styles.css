@@ -1,0 +1,271 @@
+:root {
+    --bg: #f9fafb;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --text: #111827;
+    --primary: #2563eb;
+    --danger: #ef4444;
+    --border: #d1d5db;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    background: radial-gradient(1200px 500px at 70% -10%, #dbeafe 0%, var(--bg) 60%);
+    color: var(--text);
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+}
+
+/* ==========================
+   CARD STYLES
+   ========================== */
+.card {
+    background: linear-gradient(180deg, rgba(17,24,39,0.05), rgba(17,24,39,0.01));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.description {
+    font-size: 0.9rem;
+    color: #374151;
+    background-color: #f9fafb;
+    border-left: 3px solid #2563eb;
+    padding: 6px 10px;
+    margin-top: 4px;
+    border-radius: 6px;
+  }
+  
+
+/* ==========================
+   LOGIN CARD (AUTH)
+   ========================== */
+.auth-card {
+    width: 100%;
+    max-width: 380px;
+    padding: 36px 32px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.login-logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    max-width: 200px;
+}
+
+.auth-card h1 {
+    margin: 0 0 24px;
+    font-size: 28px;
+}
+
+/* FORM ELEMENTS */
+label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #f3f4f6;
+    color: var(--text);
+    outline: none;
+    margin-bottom: 14px;
+}
+
+input::placeholder { color: #9ca3af; }
+
+/* ==========================
+   BUTTONS
+   ========================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn.primary {
+    background: linear-gradient(180deg, #3b82f6, #2563eb);
+    border-color: #1e40af;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background: linear-gradient(180deg, #2563eb, #1d4ed8);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.btn.danger {
+    background: linear-gradient(180deg, #ef4444, #dc2626);
+    border-color: #b91c1c;
+    color: #fff;
+}
+
+.btn.danger:hover {
+    background: linear-gradient(180deg, #dc2626, #b91c1c);
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+}
+
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.w-100 { width: 100%; }
+.small { font-size: 12px; }
+.muted { color: var(--muted); }
+
+.muted.small {
+    margin-top: 18px;
+    display: block;
+    text-align: center;
+}
+
+.error {
+    color: #b91c1c;
+    min-height: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.hidden { display: none; }
+.full { grid-column: 1 / -1; }
+
+/* ==========================
+   HEADER
+   ========================== */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.brand { font-weight: 600; font-size: 18px; display: flex; align-items: center; }
+.brand-logo {
+	height: 32px;
+	width: auto;
+	object-fit: contain;
+}
+.actions { display: flex; gap: 10px; }
+
+/* ==========================
+   GRID / WIDGET AREA
+   ========================== */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* Widget grid */
+.widget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px;
+    margin-top: 24px;
+}
+
+/* Individual widget */
+.widget {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 22px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    background: var(--card);
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transition: all 0.25s ease-in-out;
+}
+
+.widget:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Widget title & URL */
+.widget h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.widget .description {
+    color: #4b5563;
+    font-size: 14px;
+    margin-top: 6px;
+    margin-bottom: 4px;
+}
+
+.widget .url {
+    color: #6b7280;
+    font-size: 13px;
+    word-break: break-all;
+    margin-top: 2px;
+}
+
+/* Row layout for actions */
+.widget .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.row-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* ==========================
+   MOBILE RESPONSIVENESS
+   ========================== */
+@media (max-width: 640px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .widget-grid { grid-template-columns: 1fr; }
+    .auth-card { padding: 28px 20px; }
+    .auth-card h1 { font-size: 24px; }
+}
