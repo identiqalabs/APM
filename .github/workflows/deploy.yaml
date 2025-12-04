@@ -11,7 +11,7 @@ jobs:
 
     env:
       LAMBDA_FUNCTION_NAME: APMWidgetApp        # change if needed
-      LAMBDA_ROLE_ARN: arn:aws:iam::<ACCOUNT_ID>:role/APMWidgetRole  # TODO: replace
+      LAMBDA_ROLE_ARN: arn:aws:iam::014044355279:role/APMWidgetRole  # TODO: replace
       AWS_REGION: ${{ secrets.AWS_REGION }}
 
     steps:
