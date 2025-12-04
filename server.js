@@ -20,9 +20,23 @@ const ADMIN_USERNAME = process.env.ADMIN_USERNAME || "admin";
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
 
 // MongoDB Connection
-await mongoose.connect(MONGODB_URI, {
-  dbName: "widget_app"
-});
+let isConnected = false;
+
+async function connectToDB() {
+  if (isConnected) return;
+  try {
+    await mongoose.connect(MONGODB_URI, { dbName: "widget_app" });
+    isConnected = true;
+    console.log("✅ MongoDB connected");
+  } catch (err) {
+    console.error("MongoDB connection failed:", err);
+    throw err;
+  }
+}
+
+// At top of server.js before defining routes
+await connectToDB();
+
 
 const widgetSchema = new mongoose.Schema(
   {
