@@ -1,5 +1,11 @@
+// lambda.js
 import serverless from "serverless-http";
 import app from "./server.js";
 
-// Wrap existing Express app for AWS Lambda
-export const handler = serverless(app);
+console.log("Lambda module loaded");
+
+export const handler = serverless(app, {
+  request: (req, event, context) => {
+    console.log("Incoming event:", event);
+  },
+});
