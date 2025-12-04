@@ -178,3 +178,4 @@ app.use(express.static(path.join(__dirname, "public")));
 app.listen(PORT, () => {
   console.log(`✅ Server listening on http://localhost:${PORT}`);
 });
+export default app;
