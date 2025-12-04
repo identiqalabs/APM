@@ -175,7 +175,9 @@ app.get("/", (req, res) => {
 app.use(express.static(path.join(__dirname, "public")));
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`✅ Server listening on http://localhost:${PORT}`);
-});
+if (process.env.AWS_LAMBDA_FUNCTION_NAME === undefined) {
+  app.listen(PORT, () => {
+    console.log(`✅ Server listening on http://localhost:${PORT}`);
+  });
+}
 export default app;
