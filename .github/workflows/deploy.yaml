@@ -21,13 +21,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20"
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build deployment package
         run: |
+          rm -rf build lambda-package.zip
           mkdir -p build
           cp package.json package-lock.json server.js lambda.js build/
           cp -r public build/public
@@ -49,7 +50,7 @@ jobs:
           ZIP_FILE="lambda-package.zip"
           FUNC_NAME="$LAMBDA_FUNCTION_NAME"
           ROLE_ARN="$LAMBDA_ROLE_ARN"
-          RUNTIME="nodejs18.x"
+          RUNTIME="nodejs20.x"
           HANDLER="lambda.handler"
 
           # Check if function exists
